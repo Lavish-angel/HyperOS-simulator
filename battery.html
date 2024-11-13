@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+        margin-top: 20px;
+        font-family: MiSans;
+      }
+
+      @font-face {
+      font-family: 'MiSans';
+      src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+      } 
+
+      .storage-container {
+        background-color: none;
+        width: 375px; 
+        height: 834px;
+        border: 10px solid #333;
+        border-radius: 36px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .storage-screen {
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        width: 100%;
+        border-radius: 25px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+      }
+
+      .storage-header-container {
+        display: grid;
+        grid-template-columns: 20% 70% 10%;
+        position: sticky; 
+        top: 0px;
+        justify-content: center;
+        width: 375px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 30px;
+        z-index: 1;
+      }
+
+      .storage-back-top-button {
+        background-color: rgb(255, 255, 255);
+        height: 50%;
+        width: 50%;
+        border: none;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-top: 20px;
+        border-radius: 12px;
+        padding-left: 7px;
+        padding-right: 5px;
+        padding-top: 3px;
+      }
+
+      .storage-header {
+        padding: 20px 0 20px 60px;
+      }
+      .storage-header-text {
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+      }
+
+      .three-dot-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        height: 30px;
+        margin-top: 17px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .three-dot-menu:hover {
+        background-color: #eaeaea;
+      }
+
+      .storage-back-top-button:hover {
+        background-color: #eaeaea;
+      }
+
+      .storage-bottom-menu {
+        position: sticky;
+        bottom: 0px;
+        width: 375px;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0;
+        justify-content: space-around;
+        align-items: end;
+        background-color: rgb(255, 255, 255);
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        margin: 0;
+      }
+
+      .storage-footer-back-button {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        cursor: pointer;
+        padding: 5px 15px;
+        border-radius: 10px;
+      }
+
+      .storage-footer-back-button:hover {
+        background-color: rgb(245, 245, 245)
+      }
+
+      .storage-footer-back-button:active {
+        background-color: rgb(235, 235, 235);
+      }
+
+      .storage-space-heading-text {
+        padding: 20px;
+        padding-top: 0;
+        margin: 0;
+        font-family: 'MiSans';
+        font-size: 30px;
+        font-weight: 230;
+      }
+
+      .button {
+        background-color: #d2d2d2;
+        width: 44px;
+        height: 22px;
+        border-radius: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: 0.2s;
+      }
+
+      .button::before {
+        position: absolute;
+        content: '';
+        background-color: #fff;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        margin: 3px;
+        transition: 0.2s;
+      }
+
+      input:checked + .button {
+        background-color: #3482FE;
+      }
+
+      input:checked + .button::before {
+        transform: translateX(22px);
+      }
+
+      input {
+        display: none;
+      }
+
+      .slider {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 89%; /* Set a visible width */
+  height: 8px; /* Thin height for the slider bar */
+  background: #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  opacity: 0.9;
+  margin-left: 20px; /* Ensure it's placed within the view */
+  margin-right: 20px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.battery-time span {
+  font-size: 11px;
+}
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+.option:last-child {
+  border-bottom: none;
+}
+.option-value {
+  color: #888;
+}
+.chevron::after {
+            content: '>';
+            margin-left: 5px;
+        }
+        .active-info {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+        .info-icon::after {
+            content: 'i';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            line-height: 12px;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid #888;
+            margin-left: 5px;
+            font-size: 10px;
+        }
+        .active-time {
+            font-size: 18px;
+            margin: 0 20px;
+        }
+        .active-time span {
+            font-size: 24px;
+        }
+
+        .legend-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .blue { background-color: #3b82f6; }
+        .green { background-color: #22c55e; }
+        .graph {
+            height: 200px;
+            margin: 20px;
+            background-color: #f0f9ff;
+            position: relative;
+        }
+
+        .graph-labels {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #888;
+        }
+        .app-usage {
+            margin: 20px;
+        }
+        .app-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .app-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+        .app-info {
+            flex-grow: 1;
+        }
+        .app-name-percent {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .app-percent {
+            color: #888;
+        }
+        .app-bar {
+            height: 4px;
+            background-color: #e0e0e0;
+            border-radius: 2px;
+        }
+        .app-bar-fill {
+            height: 100%;
+            background-color: #3b82f6;
+            border-radius: 2px;
+        }
+        .more-apps {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: transparent;
+            border: none;
+            color: #3b82f6;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+
+</style>
+</head>
+<body>
+  <div class="storage-container">
+    <div class="storage-screen">
+      <div class="storage-header-container">
+        <div class="storage-back-arrow-container">
+          <a href="index.html">
+            <button class="storage-back-top-button">
+              <img src="icons/back arrow.svg">
+            </button>
+          </a>
+        </div>
+        <div class="storage-header">
+          <p class="storage-header-text" style="color: white;">
+            Updates
+          </p>
+        </div>
+      </div>
+      <div class="storage-space-heading-text">
+        Battery
+      </div>
+      <div class="battery-status" style="background: linear-gradient(to right, #03bd47, #06d954b0);
+        color: white; padding: 20px; margin: 0 14px; border-radius: 10px;">
+        <div class="battery-time" style="font-size: 48px; font-weight: 350;">
+          14<span> hrs </span>23<span> mins</span>
+        </div>
+        <div class="battery-info">
+          Remaining time | 53% charged
+        </div>
+      </div>  
+      <div class="option">
+        <span>Current mode</span>
+        <span class="option-value">Balanced <span class="chevron"></span></span>
+      </div>
+      <div class="option">
+        <span>Battery check-up</span>
+        <span class="option-value">8 items <span class="chevron"></span></span>
+      </div>
+      <div class="option">
+          <span>Battery protection</span>
+          <span class="chevron"></span>
+      </div>
+      <div class="option">
+          <span>Additional features</span>
+          <span class="chevron"></span>
+      </div>
+      <div style="height: 1px; background-color: #e0e0e0; margin: 10px 20px;">      </div>
+      <div class="active-info">
+        Active <span class="info-icon"></span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr;">
+        <div class="active-time">145 <span style="font-size: 14px; color: #888;">hrs</span> 56 <span style="font-size: 14px; color: #888;">mins</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 10fr 1fr 10fr;">
+          <div class="legend-color blue"></div>
+          <div style="font-size: 13px;">Battery usage</div>
+          <div class="legend-color green"></div>
+          <div style="font-size: 13px;">Charging</div>
+        </div>
+      </div>
+      <div class="graph">
+        <div class="graph-labels">
+            <span>100%</span>
+            <span>75%</span>
+            <span>50%</span>
+            <span>25%</span>
+            <span>0%</span>
+        </div>
+      </div>
+      <div class="app-usage">
+        <div class="app-item">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/play-store-icon.png" alt="Google Play Store" class="app-icon">
+          <div class="app-info">
+            <div class="app-name-percent">
+              <span>Google Play Store</span>
+              <span class="app-percent">60.24%</span>
+            </div>
+            <div class="app-bar">
+              <div class="app-bar-fill" style="width: 60.24%;">
+              </div>
+            </div>
+          </div>
+          <span class="chevron"></span>
+        </div>
+        <div class="app-item">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/getapps-icon.png" alt="GetApps" class="app-icon">
+          <div class="app-info">
+            <div class="app-name-percent">
+              <span>GetApps</span>
+              <span class="app-percent">9.09%</span>
+            </div>
+            <div class="app-bar">
+              <div class="app-bar-fill" style="width: 9.09%;"></div>
+            </div>
+          </div>
+          <span class="chevron"></span>
+        </div>
+        <div class="app-item">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/google-icon.png" alt="Google" class="app-icon">
+          <div class="app-info">
+            <div class="app-name-percent">
+              <span>Google</span>
+              <span class="app-percent">7.44%</span>
+            </div>
+            <div class="app-bar">
+              <div class="app-bar-fill" style="width: 7.44%;"></div>
+            </div>
+          </div>
+          <span class="chevron"></span>
+        </div>
+        <div class="app-item">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/poco-icon.png" alt="POCO Launcher" class="app-icon">
+          <div class="app-info">
+            <div class="app-name-percent">
+              <span>Default Launcher</span>
+              <span class="app-percent">4.27%</span>
+           </div>
+            <div class="app-bar">
+              <div class="app-bar-fill" style="width: 4.27%;"></div>
+            </div>
+          </div>
+          <span class="chevron"></span>
+        </div>
+        <div class="app-item">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vault-icon.png" alt="App vault" class="app-icon">
+          <div class="app-info">
+            <div class="app-name-percent">
+              <span>App vault</span>
+              <span class="app-percent">3.95%</span>
+            </div>
+            <div class="app-bar">
+              <div class="app-bar-fill" style="width: 3.95%;"></div>
+            </div>
+          </div>
+          <span class="chevron"></span>
+        </div>
+      </div>
+        <button class="more-apps">More apps</button>
+        <div class="storage-bottom-menu">
+        <div class="storage-footer-menu"><img src="icons/menu rectangle.svg"></div>
+        <div class="storage-footer-home"><img src="icons/home ellipse.svg"></div>
+        <div class="storage-footer-back">
+          <a href="index.html">
+            <button class="storage-footer-back-button">
+              <img src="icons/back triangle.svg">
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+      

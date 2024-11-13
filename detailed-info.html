@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+.detailed-info-container {
+  background-color: none;
+  width: 375px; 
+  height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.detailed-info-screen {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.detailed-info-header-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: sticky; /* Make it fixed at the top */
+  top: 0px; /* Position it at the top of the viewport */
+  justify-content: center;
+  width: 375px; /* Ensure it spans the full width */
+  background-color: rgb(255, 255, 255); /* Match the background color of the page */
+  border-radius: 30px;
+  z-index: 1;
+}
+
+
+.detailed-info-back-top-button {
+  background-color: rgb(255, 255, 255);
+  height: 50%;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.detailed-info-header {
+  padding: 20px 0 20px 60px;
+}
+.detailed-info-header-text {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.detailed-info-back-top-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.detailed-info-back-top-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.detailed-info-heading-and-info-container {
+  margin-top: 15px;
+}
+
+.detailed-info-heading-text {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+  font-family: 'MiSans';
+  font-size: 30px;
+  font-weight: 230;
+}
+
+.detailed-info-block1,
+.detailed-info-block2,
+.detailed-info-block3,
+.detailed-info-block4,
+.detailed-info-block5 {
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: rgb(225, 225, 225);
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.detailed-info-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.detailed-info-list li {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 10px;
+}
+
+.detailed-info-minor-text {
+  font-size: 12px;
+  color: RGB(150, 150, 150);
+  font-weight: 500;
+  margin: 0;
+}
+
+.detailed-info-major-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: RGB(60, 60, 60);
+}
+
+.detailed-info-list li:hover{
+  background-color: rgb(245, 245, 245);
+}
+
+.detailed-bottom-menu {
+  position: sticky;
+  bottom: 0px;
+  width: 375px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 0px;
+  justify-content: space-around;
+  align-items: end;
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin: 0;
+}
+
+.detailed-footer-back-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  padding:  5px 15px 0px 15px;
+  border-radius: 10px;
+}
+
+.detailed-footer-back-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.detailed-footer-back-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+a {
+text-decoration: none;
+}
+</style>
+</head>
+<body>
+  <div class="detailed-info-container">
+    <div class="detailed-info-screen">
+      <div class="detailed-info-header-container">
+        <div class="detailed-info-back-arrow-container">
+          <a href="about-phone.html">
+            <button class="detailed-info-back-top-button">
+              <img src="icons/back arrow.svg" class="top-back-arrow-icon">
+            </button>
+          </a> 
+        </div>
+        <div class="detailed-info-header">
+          <p class="detailed-info-header-text">Detailed</p>
+        </div>
+      </div>  
+      <div class="detailed-info-heading-and-info-container">
+        <div class="detailed-info-heading-text">Detailed info and specs</div>
+        <div class="detailed-info-block1">
+          <img src="icons/ram.svg">
+          <p class="detailed-info-minor-text">RAM <strong>&#9432</strong></p>
+          <p class="detailed-info-major-text" style="margin-bottom: 15px;">16.0 + 6.0 GB</p>
+          <img src="icons/cpu.svg">
+          <p class="detailed-info-minor-text">CPU</p>
+          <p class="detailed-info-major-text">Snapdragon 8 Geb 3 Mobile Platform</p>
+          <p class="detailed-info-major-text">Octa-core Max 3.3GHz</p>
+        </div>  
+        <div class="detailed-info-block2">
+          <p class="detailed-info-major-text">OS version</p>
+          <p class="detailed-info-minor-text">1.0.4.0.UNAINXM</p>
+        </div>
+        <div class="detailed-info-block3">
+          <div>
+            <p class="detailed-info-major-text">Android Version</p>
+            <p class="detailed-info-minor-text">14 UKQ1.23XXXX.XXX | Android security update: 2024-05-01</p>
+          </div>
+        </div>
+          <div class="detailed-info-block4">
+            <div>
+              <p class="detailed-info-major-text">Model</p>
+              <p class="detailed-info-minor-text" style="margin-bottom: 18px">24030XXXXX</p>
+              <p class="detailed-info-major-text">Baseband version</p>
+              <p class="detailed-info-minor-text" style="margin-bottom: 18px">MPSS.XX.5.0.XXX-May 6 2021-12:42:48</p>
+              <p class="detailed-info-major-text">Kernel version</p>
+              <p class="detailed-info-minor-text">6.1.XX-android14-XX-asm3khj4ty74sf01Tk</p>
+            </div>
+          </div>
+          <div class="detailed-info-block5">
+            <div>
+              <p class="detailed-info-major-text">Internal storage</p>
+              <p class="detailed-info-minor-text">Available storage 450.6 GB / Total storage 512 GB</p>
+            </div>
+          </div>
+          <div class="detailed-info-list-container">
+            <ul class="detailed-info-list">
+              <a href="important.html">
+                <li class="detailed-info-major-text">Important safety information</li>
+              </a>
+              <a href="legal.html">
+                <li class="detailed-info-major-text">Legal information</li>
+              </a>
+              <a href="status.html">
+                <li class="detailed-info-major-text">
+                  Status
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>  
+        <div class="detailed-bottom-menu">
+          <div class="detailed-footer-menu"><img src="icons/menu rectangle.svg"></div>
+          <div class="detailed-footer-home"><img src="icons/home ellipse.svg"></div>
+          <div class="detailed-footer-back">
+            <a href="about-phone.html" style="margin: 0; padding: 0;"><button class="detailed-footer-back-button"><img src="icons/back triangle.svg"></button></a>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

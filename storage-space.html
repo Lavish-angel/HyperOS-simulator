@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.storage-container {
+  background-color: none;
+  width: 375px; 
+  height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.storage-screen {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.storage-header-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: sticky; /* Make it fixed at the top */
+  top: 0px; /* Position it at the top of the viewport */
+  justify-content: center;
+  width: 375px; /* Ensure it spans the full width */
+  background-color: rgb(255, 255, 255); /* Match the background color of the page */
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.storage-back-top-button {
+  background-color: rgb(255, 255, 255);
+  height: 50%;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.storage-header {
+  padding: 20px 0 20px 60px;
+}
+.storage-header-text {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.storage-back-top-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-back-top-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.storage-space-heading-text {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+  font-family: 'MiSans';
+  font-size: 30px;
+  font-weight: 230;
+}
+
+.storage-heading-and-info-container {
+  margin-top: 15px;
+}
+
+.storage-space-data-text {
+  padding: 20px;
+  font-size: 13px;
+  color: rgb(150, 150, 150);
+  margin-bottom: 10px;
+}
+
+.cylinder-container {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.cylinder-stump {
+  --parameter:20px;
+  width: 115px;
+  height: 510px;
+  background:
+  radial-gradient(50% var(--parameter)
+  at 50% var(--parameter),#ededed 99.99%, #0000 0),
+  linear-gradient(to right, #f3f3f3, #ffffff 20%, #ffffff 40%, #E5E5E5 90%); /* Gradient from light to dark */
+  border-radius: 100% / calc(var(--parameter) * 2);
+  position: relative;
+}
+
+.cylinder-system {
+  --parameter: 20px;
+  width: 115px;
+  height: 80px;
+  background: 
+  radial-gradient(50% var(--parameter)
+  at 50% var(--parameter), #95AAFC 99.9%, #0000 0),#95AAFC;
+  border-radius: 100% / calc(var(--parameter)*2);
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.cylinder-system-files {
+  --parameter: 20px;
+  width: 115px;
+  height: 65px;
+  background: 
+  radial-gradient(50% var(--parameter)
+  at 50% var(--parameter), #00A6D9 99.99%, #0000 0),#00A6D9;
+  border-radius: 100% / calc(var(--parameter)*2);
+  position: absolute;
+  bottom: 39px;
+}
+
+.cylinder-video {
+  --parameter: 20px;
+  width: 115px;
+  height: 50px;
+  background: 
+  radial-gradient(50% var(--parameter)
+  at 50% var(--parameter), #CE3BEB 99.99%, #0000 0),#CE3BEB;
+  border-radius: 100% / calc(var(--parameter)*2);
+  position: absolute;
+  bottom: 60px;
+}
+
+.cylinder-images {
+  --parameter: 20px;
+  width: 115px;
+  height: 45px;
+  background: 
+  radial-gradient(50% var(--parameter)
+  at 50% var(--parameter), #FE9238 99.99%, #0000 0),#FE9238;
+  border-radius: 100% / calc(var(--parameter)*2);
+  position: absolute;
+  bottom: 70px;
+}
+
+.cylinder-apps {
+  --parameter:20px;
+  width: 115px;
+  height: 49px;
+  background:
+  radial-gradient(50% var(--parameter)
+  at 50% var(--parameter),#F7cc27 99.99%, #0000 0),
+  radial-gradient(50% var(--parameter) 
+  at 50% calc(100% - var(--parameter)), #FED635 99.99%, #0000 0), linear-gradient(to right, #FED635, #F3BD0B);
+  border-radius: 100% / calc(var(--parameter) * 2);
+  position: absolute;
+  bottom: 75px
+}
+
+.storage-data-breakup-container {
+  padding-left: 50px;
+}
+
+.storage-data-breakup-text-apps {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-text-images {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-text-audio {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-text-video {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-text-apks {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-text-documents {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-text-system-files {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-text-system {
+  font-size: 12px;
+  color: rgb(150, 150, 150);  
+  display: inline-block;
+}
+
+.storage-data-breakup-number-apps,
+.storage-data-breakup-number-images,
+.storage-data-breakup-number-audio,
+.storage-data-breakup-number-video,
+.storage-data-breakup-number-apks,
+.storage-data-breakup-number-documents,
+.storage-data-breakup-number-system-files,
+.storage-data-breakup-number-system {
+  padding-bottom: 20px;  
+}
+
+
+.storage-data-breakup-bubble-apps {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #ffc400;
+  display: inline-block;
+}
+
+.storage-data-breakup-bubble-images {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #FE9238;
+  display: inline-block;
+}
+
+.storage-data-breakup-bubble-audio {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #FD4138;
+  display: inline-block;
+}
+
+.storage-data-breakup-bubble-video {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #CE3BEB;
+  display: inline-block;
+}
+
+.storage-data-breakup-bubble-apks {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #2782EB;
+  display: inline-block;
+}
+
+.storage-data-breakup-bubble-documents {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #2EDE8B;
+  display: inline-block;
+}
+
+.storage-data-breakup-bubble-system-files {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #00A6D9;
+  display: inline-block;
+}
+
+.storage-data-breakup-bubble-system {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #95AAFC;
+  display: inline-block;
+}
+
+
+.grey-out-cylinder {
+  filter: grayscale(100%);
+}
+
+
+.grey-out {
+  color: rgb(234, 234, 234) !important; /* Override text color */
+  opacity: 1;
+}
+
+.grey-out-bubble {
+  background-color: rgb(234, 234, 234) !important;
+}
+
+.free-up-button {
+  background-color: #E6F2FF;
+  border: none;
+  height: 50px;
+  width: 85%;
+  margin-left: 8%;  
+  margin-top: 30px;
+  border-radius: 10px;
+  color: #4f8cec ;
+  font-size: 16px;
+  font-family: MiSans;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.free-up-button:hover {
+  background-color: #d1e5fb;
+}
+
+.more-cleaning-tools-list-container {
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  background-color: #F2F2F2;
+  padding: 15px 10px 0 0;
+  border-radius: 20px;
+}
+
+.more-cleaning-tools-list li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 40px;
+  color: #646464;
+  cursor: pointer;
+}
+
+.storage-bottom-menu {
+  position: sticky;
+  bottom: 0px;
+  width: 375px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 0px;
+  justify-content: space-around;
+  align-items: end;
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin: 0;
+}
+
+.storage-footer-back-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  padding:  5px 15px 0px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.storage-footer-back-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-footer-back-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.cylinder-system-files,
+.cylinder-video,
+.cylinder-images,
+.cylinder-apps {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+   <!-- Storage Page -->
+   <div class="storage-container">
+    <div class="storage-screen">
+      <div class="storage-header-container">
+        <div class="storage-back-arrow-container">
+          <a href="about-phone.html"><button class="storage-back-top-button"><img src="icons/back arrow.svg"></button></a></div>
+        <div class="storage-header"><p class="storage-header-text">Storage</p></div>
+      </div>
+      <div class="storage-heading-and-info-container">
+        <div class="storage-space-heading-text">Storage space</div>
+        <div class="storage-space-data-text">61.3 GB/512 GB occupied | 450.7 GB available</div>
+      </div>
+      <div>
+        <div class="cylinder-container">
+          <div class="cylinder-stump">
+            <div class="cylinder-system"></div>
+            <div class="cylinder-system-files"></div>  
+            <div class="cylinder-video"></div>
+            <div class="cylinder-images"></div>
+            <div class="cylinder-apps"></div>
+          </div>
+          <div class="storage-data-breakup-container">
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-apps"></div>
+                <div class="storage-data-breakup-text-apps">Apps and data</div>
+              </div>
+              <div class="storage-data-breakup-number-apps">7.10 GB</div>
+            </div> 
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-images"></div>
+                <div class="storage-data-breakup-text-images">Images</div>
+              </div>
+              <div class="storage-data-breakup-number-images">25.07 MB</div>
+            </div>
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-audio"></div>
+                <div class="storage-data-breakup-text-audio">Audio</div>
+              </div>
+              <div class="storage-data-breakup-number-audio">0 B</div>
+            </div>
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-video"></div>
+                <div class="storage-data-breakup-text-video">Video</div>
+              </div>
+              <div class="storage-data-breakup-number-video">62.26 GB</div>
+            </div>
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-apks"></div>
+                <div class="storage-data-breakup-text-apks">APKs</div>
+              </div>
+              <div class="storage-data-breakup-number-apks">0 B</div>
+            </div>
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-documents"></div>
+                <div class="storage-data-breakup-text-documents">Documents</div>
+              </div>
+              <div class="storage-data-breakup-number-documents">0 B</div>
+            </div>
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-system-files"></div>
+                <div class="storage-data-breakup-text-system-files">System Files</div>
+              </div>
+              <div class="storage-data-breakup-number-system-files">17.76 GB</div>
+            </div>
+            <div>
+              <div>
+                <div class="storage-data-breakup-bubble-system"></div>
+                <div class="storage-data-breakup-text-system">System</div>
+              </div>
+              <div class="storage-data-breakup-number-system">36.38 GB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="free-up-button-container"><button class="free-up-button">Free up 29.3 MB</button></div>
+      <div class="more-cleaning-tools-list-container">
+        <ul class="more-cleaning-tools-list">
+          <li>More cleaning tools</li>
+          <li style="color: #4f8cec;"><strong>Deep clean</strong></li>
+          <li style="color:#F2F2F2">#####################</li>
+          <li>Storage optimisation</li>
+          <li style="padding-bottom: 30px; margin: 0; color: #4f8cec"><strong>Storage refresh</strong></li>
+        </ul>
+      </div>
+      <div class="storage-bottom-menu">
+        <div class="storage-footer-menu"><img src="icons/menu rectangle.svg"></div>
+        <div class="storage-footer-home"><img src="icons/home ellipse.svg"></div>
+        <a href="about-phone.html"><div class="storage-footer-back"><button class="storage-footer-back-button"><img src="icons/back triangle.svg"></button></div></a>
+      </div>
+    </div>
+<script>
+  const cylinders = {
+  system: document.querySelector('.cylinder-system'),
+  systemFiles: document.querySelector('.cylinder-system-files'),
+  video: document.querySelector('.cylinder-video'),
+  images: document.querySelector('.cylinder-images'),
+  apps: document.querySelector('.cylinder-apps')
+};
+
+const texts = {
+  system: document.querySelector('.storage-data-breakup-text-system'),
+  systemFiles: document.querySelector('.storage-data-breakup-text-system-files'),
+  video: document.querySelector('.storage-data-breakup-text-video'),
+  images: document.querySelector('.storage-data-breakup-text-images'),
+  appsAndData: document.querySelector('.storage-data-breakup-text-apps'),
+  audio: document.querySelector('.storage-data-breakup-text-audio'), // Add audio
+  apks: document.querySelector('.storage-data-breakup-text-apks'), // Add apks
+  documents: document.querySelector('.storage-data-breakup-text-documents') // Add documents
+};
+
+const numbers = {
+  system: document.querySelector('.storage-data-breakup-number-system'),
+  systemFiles: document.querySelector('.storage-data-breakup-number-system-files'),
+  video: document.querySelector('.storage-data-breakup-number-video'),
+  images: document.querySelector('.storage-data-breakup-number-images'),
+  appsAndData: document.querySelector('.storage-data-breakup-number-apps'),
+  audio: document.querySelector('.storage-data-breakup-number-audio'), // Add audio
+  apks: document.querySelector('.storage-data-breakup-number-apks'), // Add apks
+  documents: document.querySelector('.storage-data-breakup-number-documents') // Add documents
+};
+
+const bubbles = {
+  system: document.querySelector('.storage-data-breakup-bubble-system'),
+  systemFiles: document.querySelector('.storage-data-breakup-bubble-system-files'),
+  video: document.querySelector('.storage-data-breakup-bubble-video'),
+  images: document.querySelector('.storage-data-breakup-bubble-images'),
+  appsAndData: document.querySelector('.storage-data-breakup-bubble-apps'),
+  audio: document.querySelector('.storage-data-breakup-bubble-audio'), // Add audio
+  apks: document.querySelector('.storage-data-breakup-bubble-apks'), // Add apks
+  documents: document.querySelector('.storage-data-breakup-bubble-documents') // Add documents
+};
+
+const otherCylinders = (excludeKey) => {
+  return Object.keys(cylinders).filter(key => key !== excludeKey);
+};
+
+const handleHover = (sectionKey) => {
+  const toGreyOut = otherCylinders(sectionKey);
+
+  toGreyOut.forEach(key => {
+    // Grey-out cylinders
+    cylinders[key]?.classList.add('grey-out-cylinder');
+
+    // Grey-out text, numbers, and bubbles
+    texts[key]?.classList.add('grey-out');
+    numbers[key]?.classList.add('grey-out');
+    bubbles[key]?.classList.add('grey-out-bubble');
+  });
+
+  // Grey-out audio, APKs, and documents, regardless of the cylinder
+  if (sectionKey !== 'audio') {
+    texts.audio.classList.add('grey-out');
+    numbers.audio.classList.add('grey-out');
+    bubbles.audio.classList.add('grey-out-bubble');
+  }
+
+  if (sectionKey !== 'apks') {
+    texts.apks.classList.add('grey-out');
+    numbers.apks.classList.add('grey-out');
+    bubbles.apks.classList.add('grey-out-bubble');
+  }
+
+  if (sectionKey !== 'documents') {
+    texts.documents.classList.add('grey-out');
+    numbers.documents.classList.add('grey-out');
+    bubbles.documents.classList.add('grey-out-bubble');
+  }
+
+  // Specifically grey-out appsAndData when not hovering over it
+  if (sectionKey !== 'appsAndData') {
+    cylinders.appsAndData?.classList.add('grey-out-cylinder');
+    texts.appsAndData?.classList.add('grey-out');
+    numbers.appsAndData?.classList.add('grey-out');
+    bubbles.appsAndData?.classList.add('grey-out-bubble');
+  }
+};
+
+const handleHoverOut = () => {
+  Object.keys(cylinders).forEach(key => {
+    // Restore cylinders
+    cylinders[key]?.classList.remove('grey-out-cylinder');
+
+    // Restore text, numbers, and bubbles
+    texts[key]?.classList.remove('grey-out');
+    numbers[key]?.classList.remove('grey-out');
+    bubbles[key]?.classList.remove('grey-out-bubble');
+  });
+
+  // Restore audio, APKs, and documents
+  texts.audio.classList.remove('grey-out');
+  numbers.audio.classList.remove('grey-out');
+  bubbles.audio.classList.remove('grey-out-bubble');
+
+  texts.apks.classList.remove('grey-out');
+  numbers.apks.classList.remove('grey-out');
+  bubbles.apks.classList.remove('grey-out-bubble');
+
+  texts.documents.classList.remove('grey-out');
+  numbers.documents.classList.remove('grey-out');
+  bubbles.documents.classList.remove('grey-out-bubble');
+};
+
+// Add event listeners for each cylinder section
+Object.keys(cylinders).forEach(key => {
+  cylinders[key]?.addEventListener('mouseover', () => handleHover(key));
+  cylinders[key]?.addEventListener('mouseout', handleHoverOut);
+});
+
+
+//
+// Storage space cylinder function JS
+//
+
+</script>
+</body>
+</html>

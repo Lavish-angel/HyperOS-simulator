@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+      margin-top: 20px;
+      font-family: MiSans;
+    }
+
+    @font-face {
+    font-family: 'MiSans';
+    src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+    } 
+
+    .storage-container {
+      background-color: none;
+      width: 375px; 
+      height: 834px;
+      border: 10px solid #333;
+      border-radius: 36px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .storage-screen {
+      background-color: rgb(255, 255, 255);
+      height: 100%;
+      width: 100%;
+      border-radius: 25px;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+
+    .storage-header-container {
+      display: grid;
+      grid-template-columns: 20% 70% 10%;
+      position: sticky; 
+      top: 0px;
+      justify-content: center;
+      width: 375px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 30px;
+      z-index: 1;
+    }
+
+    .storage-back-top-button {
+      background-color: rgb(255, 255, 255);
+      height: 50%;
+      width: 50%;
+      border: none;
+      cursor: pointer;
+      margin-left: 10px;
+      margin-top: 20px;
+      border-radius: 12px;
+      padding-left: 7px;
+      padding-right: 5px;
+      padding-top: 3px;
+    }
+
+    .storage-header {
+      padding: 20px 0 20px 60px;
+    }
+    .storage-header-text {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+    }
+
+    .three-dot-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      height: 30px;
+      margin-top: 17px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .three-dot-menu:hover {
+      background-color: #eaeaea;
+    }
+
+    .storage-back-top-button:hover {
+      background-color: #eaeaea;
+    }
+
+    .storage-bottom-menu {
+        position: sticky;
+        bottom: 0px;
+        width: 375px;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0;
+        justify-content: space-around;
+        align-items: end;
+        background-color: rgb(255, 255, 255);
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        margin: 0;
+      }
+
+      .storage-footer-back-button {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        cursor: pointer;
+        padding: 5px 15px;
+        border-radius: 10px;
+      }
+
+      .storage-footer-back-button:hover {
+        background-color: rgb(245, 245, 245)
+      }
+
+      .storage-footer-back-button:active {
+        background-color: rgb(235, 235, 235);
+      }
+
+      .storage-space-heading-text {
+        padding: 20px;
+        padding-top: 0;
+        margin: 0;
+        font-family: 'MiSans';
+        font-size: 30px;
+        font-weight: 230;
+      }
+
+      .button {
+        background-color: #d2d2d2;
+        width: 44px;
+        height: 22px;
+        border-radius: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: 0.2s;
+      }
+
+      .button::before {
+        position: absolute;
+        content: '';
+        background-color: #fff;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        margin: 3px;
+        transition: 0.2s;
+      }
+
+      input:checked + .button {
+        background-color: #3482FE;
+      }
+
+      input:checked + .button::before {
+        transform: translateX(22px);
+      }
+
+      input {
+        display: none;
+      }
+
+      .sign-out-button:hover {
+        background-color: #e4e4e4;
+      }
+
+  </style>
+</head>
+<body>
+  <div class="storage-container">
+    <div class="storage-screen">
+      <div class="storage-header-container">
+        <div class="storage-back-arrow-container">
+          <a href="index.html">
+            <button class="storage-back-top-button">
+              <img src="icons/back arrow.svg">
+            </button>
+          </a>
+        </div>
+        <div class="storage-header">
+          <p class="storage-header-text" style="color: white;">
+            Updates
+          </p>
+        </div>
+        <div class="three-dot-menu" style="margin-right: 8px; padding: 2px 8px;">
+          <img src="icons/wifi-scanner.svg">
+        </div>
+      </div>
+      <div class="storage-space-heading-text">Xiaomi Account</div>
+      <div style="display: grid;
+        grid-template-columns: 1fr 4fr 0.5fr;">
+        <div style="object-fit: fill;">
+          <img src="icons/profile-icon.svg" style="width: 45px; margin-left: 10px;">
+        </div>
+        <div>
+          <div style="margin-bottom: 5px; margin-left: 10px;">Lavish</div>
+          <div style="color: #999; font-weight: 350;
+           font-size: 14px; margin-left: 10px;">
+           Phone: +91******4756
+          </div>
+        </div>
+        <div style="text-align: center; color: #999;">&gt</div>
+      </div>
+      <div style="width: 335px; height: 1px; background-color: #d2d2d2;
+        margin-top: 20px; margin-left: 20px; border-radius: 10px;">
+      </div>
+      <p style="color: #999; font-weight: 350;
+      font-size: 14px; margin-left: 20px;">My account</p>
+      <p style="margin-left: 20px; margin-top: 20px; cursor: pointer;">Account security</p>
+      <div style="margin-left: 20px; display: flex; justify-content: space-between;
+        margin-right: 20px;">
+        <p style="cursor: pointer;">Help</p>
+        <p style="color: #999; font-weight: 350;
+        font-size: 14px; margin-top: 20px; cursor: pointer;">Reset password</p>
+      </div>
+      <div style="margin-left: 20px;">
+        <p style="margin-bottom: 34px; cursor: pointer;">Devices</p>
+        <p style="margin-bottom: 30px; cursor: pointer;">About Xiaomi Account</p>
+      </div>
+      <div style="width: 335px; height: 1px; background-color: #d2d2d2;
+        margin-top: 20px; margin-left: 20px; border-radius: 10px;">
+      </div>
+      <p style="margin-top: 30px; margin-left: 20px; cursor: pointer;">Xiaomi Cloud</p>
+      <button style="margin-left: 20px; width: 335px;
+       height: 50px; margin-top: 20px;
+       border-radius: 10px;
+       border: none; cursor: pointer;
+       font-size: 16px; margin-bottom: 186px;
+       color: #777;" class="sign-out-button">
+       Sign out
+      </button>    
+      <div class="storage-bottom-menu">
+        <div class="storage-footer-menu">
+          <img src="icons/menu rectangle.svg">
+        </div>
+        <div class="storage-footer-home">
+          <img src="icons/home ellipse.svg">
+        </div>
+        <div class="storage-footer-back">
+          <a href="index.html">
+            <button class="storage-footer-back-button">
+              <img src="icons/back triangle.svg">
+            </button>
+          </a>
+        </div>
+      </div>  
+    </div>
+  </div>
+</body>
+</html>

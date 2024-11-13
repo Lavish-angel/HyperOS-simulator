@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.storage-container {
+  background-color: none;
+  width: 375px; 
+  height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.storage-screen {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.storage-header-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: sticky; /* Make it fixed at the top */
+  top: 0px; /* Position it at the top of the viewport */
+  justify-content: center;
+  width: 375px; /* Ensure it spans the full width */
+  background-color: rgb(255, 255, 255); /* Match the background color of the page */
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.storage-back-top-button {
+  background-color: rgb(255, 255, 255);
+  height: 50%;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.storage-header {
+  padding: 20px 0 20px 60px;
+}
+.storage-header-text {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.storage-back-top-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-back-top-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.storage-space-heading-text {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+  font-family: 'MiSans';
+  font-size: 30px;
+  font-weight: 230;
+}
+
+.button {
+        background-color: #d2d2d2;
+        width: 44px;
+        height: 22px;
+        border-radius: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: 0.2s;
+      }
+
+      .button::before {
+        position: absolute;
+        content: '';
+        background-color: #fff;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        margin: 3px;
+        transition: 0.2s;
+      }
+
+      input:checked + .button {
+        background-color: #3482FE;
+      }
+
+      input:checked + .button::before {
+        transform: translateX(22px);
+      }
+
+      input {
+        display: none;
+      }
+
+      .storage-bottom-menu {
+        position: sticky;
+        bottom: 0px;
+        width: 375px;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0;
+        justify-content: space-around;
+        align-items: end;
+        background-color: rgb(255, 255, 255);
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        margin: 0;
+      }
+
+      .storage-footer-back-button {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        cursor: pointer;
+        padding: 5px 15px;
+        border-radius: 10px;
+      }
+
+      .storage-footer-back-button:hover {
+        background-color: rgb(245, 245, 245)
+      }
+
+      .storage-footer-back-button:active {
+        background-color: rgb(235, 235, 235);
+      }
+
+      span{
+        font-size: 13px;
+        color: #aaa;
+      }
+
+</style>
+</head>
+<body>
+  <div class="storage-container">
+    <div class="storage-screen">
+      <div class="storage-header-container">
+        <div class="storage-back-arrow-container">
+          <a href="detailed-info.html"><button class="storage-back-top-button"><img src="icons/back arrow.svg"></button></a></div>
+        <div class="storage-header"><p class="storage-header-text">Storage</p></div>
+      </div>
+      <div class="storage-heading-and-info-container">
+        <div class="storage-space-heading-text" style="margin: 0; margin-bottom: 12px; font-size: 26px;
+          font-weight: 350;">
+          Important safety information
+        </div>
+      </div>
+      <div style="margin-right: 20px; 
+        margin-left: 20px; font-weight: 300;">
+        <p>
+          &#183 Read all the safety information below before using your device. 
+        </p>
+        <p>
+          &#183 Using unauthorised cables, power adapters, or batteries can cause fire or explosion, or pose other risks.
+        </p>
+        <p>
+          &#183 Use only authorised accessories which are compatible with your device. 
+        </p>    
+        <p>
+          &#183 Use this device within the temperature range of 0&degC to 40&degC, and store this device and its accessories within the temperature range of -20&degC to 45&degC. Using this device in environments outside of this temperature range may damage the device.
+        </p>  
+        <p>
+          &#183 If your device is provided with a built-in battery, don't attempt to replace the battery yourself. This may damage the battery or the device. The battery may only be replaced at an authorised service center. 
+        </p>
+        <p>
+          &#183 Charge this device only with the included or authorised cable and power adapter. Using other adapters may cause fire, electric shock, and damage the device and the adapter.
+        </p>
+        <p>
+          &#183 After charging is complete, disconnect the adapter from both the device and the power outlet. Do not charge the device for longer than 12 hours. 
+        </p>
+        <p>
+          &#183 Do not attempt to modify the plug or power cord on your own, and disconnect the power supply before cleaning the charger.
+        </p>
+        <p>
+          &#183 Do not disassemble, hit, crush, or burn the battery. In case of swelling or other deformation, stop using the battery immediately.
+        </p>
+        <div style="margin-left: 20px;">
+          <p>&#183 Do not short circuit the battery. This may result in overheating, burns, or other personal injuries.</p>
+          <p>&#183 Do not place the battery u a high-temperature environment. Overheating may cause explosion.</p>
+          <p>&#183 Do not disassemble, hit, or crush the battery to avoid battery leakage, overheating, or explosion.</p>
+          <p>&#183 Do not burn the battery. This may result in fire or explosion</p>
+          <p>&#183 In case of change in color or shape, swelling, unusually high temperature, or other deformation, stop using the battery immediately.</p>
+        </div>
+        <p>
+          &#183 Keep your device dry. Do not store or use the product and it accessories in a hot and humid environment or near an open fire.
+        </p>
+        <p>&#183 To prevent voiding the warranty, do not disassemble or modify the device and its accessories. If any part of the device does not work preperly, contact Xiaomi customer support or bring your device to an authorised repair center.</p>
+        <p>&#183 To prevent possible hearing damage, do not listen at high volume levels for long periods.</p>
+        <p>&#183 Before cleaning or conducting maintenance on this device, close all applications, stop using the device, and disconnect all other devices and cables.</p>
+        <p>&#183 Use a soft, clean, dry cloth to wipe the device and its accessories. Do not use harse chemicals or detergents to clean the device ot its accessories.</p>
+        <p>&#183 Do not use external heating equipment such as a microwave or hair dryer to dry the device and its accessories.</p>
+        <h2 style="font-weight: 400; margin-bottom: 5px;">Child safety</h2>
+        <div style="width: 335px; height: 0.5px; background-color: #ddd; margin-right: 20px; margin-top: 0;"></div>
+        <p>&#183 Keep the device and all accessories away from children. Do not allow children to play with, chew, or swallow the device or any of its accessories to avoid the risk of choking or suffocation.</p>
+        <h2 style="font-weight: 400; margin-bottom: 5px;">Making emergency calls</h2>
+        <div style="width: 335px; height: 0.5px; background-color: #ddd; margin-right: 20px; margin-top: 0;"></div>
+        <p> This device cannot guarantee normal calls under all conditions in all locations. Due to the difference in service networks and regions, do not rely solely on this device for important communications or emergency calls. Making calls isn't supported on Xiaomi tablets.</p>
+        <h2 style="font-weight: 400; margin-bottom: 5px;">Security notice</h2>
+        <div style="width: 335px; height: 0.5px; background-color: #ddd; margin-right: 20px; margin-top: 0;"></div>
+        <p>&#183 Observe any rules which restrict using mobile devices in specific cases and environments.</p>
+        <p>&#183 Do not use your device in gas stations or other explosive environments. Potentially explosive environments include fueling areas, below decks on boats, fuel or chemical transfer or storage facilities, and areas where the air contains chemicals or particles, such as grain, dust, or metal powders. Obey all posted signs and requirements to rurn off wireless devices such as this device or other radio equipment. To avoid interfering with blasting operations, turn off all radio equipment, including this device, in blasting zones or where signs ask you to turn off two-way radios or electronic devices.</p>
+        <p>&#183 Do not use your device in hospital operating rooms, emergency rooms, or intensive care units. Comply with the current rules and regulations of hospitals and health centers. Consult your doctor and the medical device manufacturer to determine if operation of your mobile device may interfere with the operation of any mediacal devices you may use. To avoid potential interference with a pacemaker, maintain a minimum distance of 15 cm between your mobile device and the pacemaker. To achieve this, use your mobile device on the opposite ear to your pacemaker and do not carry it in a breast pocket. Do not use your mobile device near hearing aids, cochlear implants, etc. to avoid interference with medical equipment.</p>
+        <p>&#183 Wireless devices may interfere with aircraft flight systems. When on an aircraft, follow aviation safety regulations and turn off your device where the use of wireless devices is prohibited.</p>
+        <p>&#183 When driving a vehicle, use your device in accordance with the relevant traffic laws and regulations.</p>
+        <p>&#183 To avoid lighting strike, do not use your device outdoors during thunderstorms.</p>
+        <p>&#183 Do not make calls while charging your device. Making calls isn't supported on Xiaomi tablets.</p>
+        <p>&#183 Do not use your device in places with high humidity such as bathrooms. Doing so may result in electric shock, injury, fire, and charger damage.</p>
+        <p>&#183 Observe any rules which restrict using mobile devices in specific cases and environments.</p>
+        <p>&#183 When using the flash, do not bring the light too close to the eyes of people or animals to prevent vision impairment.</p>
+        <p>&#183 If the deivce's working temperature gets too hot, do not keep it in direct contact with your skin for an extended period of time to prevent low temperature burns.</p>
+        <p>&#183 If the display is cracked, be careful of sharp edges or fragments which may cause injury. If the device is broken into pieces after colliding with a hard object or experiencing excessive force, do not touch or attempt to remove the broken parts. Stop using the product and contact Xiaomi cusotmer service immediately.</p>
+        <h2 style="font-weight: 400; margin-bottom: 5px;">Security warning</h2>
+        <div style="width: 335px; height: 0.5px; background-color: #ddd; margin-right: 20px; margin-top: 0;"></div>
+        <p>Update your device's operating system using the built-in software update feature, or visit our authorised service outlets. Updating software through other means may damage the device or result in data loss, security issues, and other risks.</p>
+        <h2 style="font-weight: 400; margin-bottom: 5px;">Reading mode</h2>
+        <div style="width: 335px; height: 0.5px; background-color: #ddd; margin-right: 20px; margin-top: 0;"></div>
+        <p>&#183 This feature is only available on Xiaomi devices that support Reading mode.</p>
+        <p>&#183 Reading mode automatically decreases the level of blue light emitted from the screen to make viewing more comfortable for your eyes.</p>
+        <p>&#183 Switching to Reading mode:</p>
+      </div>  
+      <div class="storage-bottom-menu">
+        <div class="storage-footer-menu"><img src="icons/menu rectangle.svg"></div>
+        <div class="storage-footer-home"><img src="icons/home ellipse.svg"></div>
+        <div class="storage-footer-back">
+          <a href="detailed-info.html">
+            <button class="storage-footer-back-button">
+              <img src="icons/back triangle.svg">
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

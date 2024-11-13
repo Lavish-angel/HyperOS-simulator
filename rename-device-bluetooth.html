@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.rename-device-container {
+  background-color: none;
+  width: 375px; height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.rename-device-screen {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.rename-options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.rename-option-close,
+.rename-option-ok {
+  background-color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.rename-option-close:hover,
+.rename-option-ok:hover {
+background-color: rgb(235, 235, 235);
+}
+
+.rename-option-close:active,
+.rename-option-ok:active {
+background-color: rgb(225, 225, 225);
+}
+
+.rename-main-font {
+  font-size: 30px;
+  font-weight: 200;
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 25px;
+}
+
+.rename-text-box {
+  margin-left: 20px;
+  height: 40px;
+  width: 325px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #006cd9;
+  border-radius: 14px;
+}
+
+.rename-subtitles {
+  font-size: 14px;
+  margin: 0;
+  margin-left: 20px;
+  margin-top: 10px;
+  color: rgb(92, 92, 92);
+  margin-bottom: 800px;
+}
+
+.rename-bottom-menu {
+  position: sticky;
+  bottom: 0px;
+  width: 355px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 0px;
+  justify-content: space-around;
+  align-items: end;
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin: 0;
+}
+
+.rename-footer-back-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  padding:  5px 15px 0px 15px;
+  border-radius: 10px;
+}
+
+.rename-footer-back-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.rename-footer-back-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.rename-footer-home {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding:  5px 15px 0px 15px;
+  border-radius: 10px;
+}
+
+.rename-footer-menu {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding:  5px 15px 2px 15px;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+  <div class="rename-device-container">
+    <div class="rename-device-screen">
+      <div class="rename-options-container">
+        <a href="bluetooth-2.html">
+          <div><p class="rename-option-close">&#10005</p></div>
+        </a>
+        <a href="bluetooth-2.html">
+          <div><p class="rename-option-ok">&#10003</p></div>
+        </a>        
+      </div> 
+      <p class="rename-main-font">Rename device</p>   
+      <input class="rename-text-box" type="text" placeholder="Enter name">
+      <p class="rename-subtitles">Other nearby devices can see this name.</p>
+      <div class="rename-bottom-menu">
+        <div class="rename-footer-menu"><img src="icons/menu rectangle.svg"></div>
+        <div class="rename-footer-home"><img src="icons/home ellipse.svg"></div>
+        <div class="rename-footer-back">
+          <a href="bluetooth-2.html">
+            <button class="rename-footer-back-button"><img src="icons/back triangle.svg"></button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

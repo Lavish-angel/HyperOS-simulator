@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.certification-container {
+  background-color: none;
+  width: 375px; 
+  height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.certification-screen {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.certification-header-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: sticky; /* Make it fixed at the top */
+  top: 0px; /* Position it at the top of the viewport */
+  justify-content: center;
+  width: 375px; /* Ensure it spans the full width */
+  background-color: rgb(255, 255, 255); /* Match the background color of the page */
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.certification-back-top-button {
+  background-color: rgb(255, 255, 255);
+  height: 50%;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.certification-header {
+  padding: 20px 0 20px 60px;
+}
+.certification-header-text {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.certification-back-top-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.certification-back-top-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.certification-heading-and-info-container {
+  margin-top: 15px;
+}
+
+.certification-heading-text {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+  font-family: 'MiSans';
+  font-size: 30px;
+  font-weight: 230;
+}
+
+.storage-bottom-menu {
+  position: sticky;
+  bottom: 0px;
+  width: 375px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 0px;
+  justify-content: space-around;
+  align-items: end;
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin: 0;
+}
+
+.storage-footer-back-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  padding:  5px 15px 0px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.storage-footer-back-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-footer-back-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+</style>
+</head>
+<body>
+  <div class="certification-container">
+    <div class="certification-screen">
+      <div class="certification-header-container">
+        <div class="certification-back-arrow-container">
+         <button class="certification-back-top-button"><a href="about-phone.html"><img src="icons/back arrow.svg"></a></button></div>
+        <div class="certification-header">
+          <p class="certification-header-text">
+            Certification
+          </p>
+        </div>
+      </div>
+      <div class="certification-heading-and-info-container">
+        <div class="certification-heading-text">
+          Certification
+        </div>
+      </div>
+      <div style="display: grid;
+        grid-template-rows: 1;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;">
+        <div style="margin-top: 90px;">Model: 24030PXXXX</div>
+        <div style="margin: 20px;
+          font-weight: 500;">BIS Standard Mark</div>
+        <div style="font-size: 12px;">IS 135XX(PART 1)/IEC 60XXX-X</div>
+        <div style="font-size: 12px;
+          margin-bottom: 7px;"> IS 63XXX(PART 3)</div>
+        <div><img src="images/BIS logo.jpg" style="width: 50px; object-fit: contain;"></div>
+        <div style="font-size: 14px;">R-412XXXXX</div>
+        <div style="font-size: 14px;
+          margin-bottom: 20px;">www.bis.gov.in</div>
+        <div style="font-weight: 500;">E-waste</div>
+        <div><img src="images/Ewaste.png" style="width: 50px; object-fit: contain;"></div>
+        <div style="width: 35px; 
+          height: 7px; 
+          background-color: black; 
+          text-align: center; 
+          margin-left: 74px; 
+          margin-top: 4px;
+          margin-bottom: 220px;">
+        </div>
+      </div>
+      <div class="storage-bottom-menu">
+        <div class="storage-footer-menu"><img src="icons/menu rectangle.svg"></div>
+        <div class="storage-footer-home"><img src="icons/home ellipse.svg"></div>
+        <a href="about-phone.html"><div class="storage-footer-back"><button class="storage-footer-back-button"><img src="icons/back triangle.svg"></button></div></a>
+      </div>
+    </div>
+  </div> 
+</body>
+</html>

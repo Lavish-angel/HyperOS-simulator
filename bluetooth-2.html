@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.storage-container {
+  background-color: none;
+  width: 375px; 
+  height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.storage-screen {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.storage-header-container {
+  display: grid;
+  grid-template-columns: 20% 70% 10%;
+  position: sticky; /* Make it fixed at the top */
+  top: 0px; /* Position it at the top of the viewport */
+  justify-content: center;
+  width: 375px; /* Ensure it spans the full width */
+  background-color: rgb(255, 255, 255); /* Match the background color of the page */
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.storage-back-top-button {
+  background-color: rgb(255, 255, 255);
+  height: 50%;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.storage-header {
+  padding: 20px 0 20px 60px;
+}
+.storage-header-text {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+}
+
+.storage-back-top-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-back-top-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.three-dot-menu {
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+height: 30px;
+margin-top: 17px;
+border-radius: 8px;
+cursor: pointer;
+}
+
+.three-dot-menu:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-bottom-menu {
+  position: sticky;
+  bottom: 0px;
+  width: 375px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 0px;
+  justify-content: space-around;
+  align-items: end;
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin: 0;
+}
+
+.storage-footer-back-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  padding:  5px 15px 0px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.storage-footer-back-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-footer-back-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.storage-space-heading-text {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+  font-family: 'MiSans';
+  font-size: 30px;
+  font-weight: 230;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.wifi-container {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.button {
+  background-color: #d2d2d2;
+  width: 44px;
+  height: 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+}
+
+.button::before {
+  position: absolute;
+  content: '';
+  background-color: #fff;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  margin: 3px;
+  transition: 0.2s;
+}
+
+input:checked + .button {
+  background-color: #3482FE;
+}
+
+input:checked + .button::before {
+  transform: translateX(22px);
+}
+
+input {
+  display: none;
+}
+
+.additional-settings {
+display: flex;
+align-items: center;
+height: 60px;
+margin: 0;
+margin-right: 20px;
+}
+
+.additional-settings:hover {
+display: flex;
+align-items: center;
+background-color: #f1f1f1;
+height: 60px;
+}
+
+.bluetooth-device-name-container:hover {
+background-color: rgb(245, 245, 245);
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+  <div class="storage-container">
+    <div class="storage-screen">
+      <div class="storage-header-container">
+        <div class="storage-back-arrow-container">
+          <a href="index.html">
+            <button class="storage-back-top-button">
+              <img src="icons/back arrow.svg">
+            </button>
+          </a>
+        </div>
+        <div class="storage-header">
+          <p class="storage-header-text" style="color: white;">
+            Updates
+          </p>
+        </div>
+      </div>
+      <div class="storage-space-heading-text">Bluetooth</div>
+      <div style="display: flex; margin-bottom: 30px;">
+        <div style="display: flex; flex: 1; margin-left: 20px;">Bluetooth</div>
+        <div class="wifi-container" style="display: flex;">
+          <input type="checkbox" id="bluetoothToggle" checked>
+          <label for="bluetoothToggle" class="button" style="margin-right: 20px;"></label>
+        </div>
+      </div>
+      <a href="rename-device-bluetooth.html" style="text-decoration: none; color: #000000;"><div class="bluetooth-device-name-container" style="display: grid;
+        grid-template-columns: 60% 40%;
+        margin-left: 20px; margin-right: 20px; cursor: pointer; padding-top: 20px; padding-bottom: 20px;">
+        <div>Device name</div>
+        <div>Xiaomi 14 Ultra ></div>
+      </div></a>
+      <div style="background-color: #f1f1f1;
+        width: 335px;
+        height: 70px;
+        margin-left: 20px;
+        border-radius: 15px; 
+        display: flex; cursor: pointer;
+        margin-top: 25px;">
+        <img src="icons/laptop.svg" style="width: 25px; margin-left: 15px;">
+        <div style="color: rgb(0, 0, 0); margin-top: 14px; margin-left: 15px;">
+          <p style="font-size: 18px; font-weight: 400;">Mi Horizon Laptop</p>
+          <p style="color: #4b4b4b; font-size: 14px; font-weight: 300;">Saved</p>
+        </div>
+        <img src="icons/bluetooth-back.svg" style="width: 30px; margin-left: 80px;">
+      </div>
+      <div style="background-color: #f1f1f1;
+        width: 335px;
+        height: 70px;
+        margin-left: 20px;
+        border-radius: 15px; 
+        display: flex; cursor: pointer;
+        margin-top: 10px;">
+        <img src="icons/earphones.svg" style="width: 25px; margin-left: 15px;">
+        <div style="color: rgb(0, 0, 0); margin-top: 14px; margin-left: 15px;">
+          <p style="font-size: 18px; font-weight: 400; width: 155px;">Redmi Buds 4 Lite</p>
+          <p style="color: #4b4b4b; font-size: 14px; font-weight: 300;">Saved</p>
+        </div>
+        <img src="icons/bluetooth-back.svg" style="width: 30px; margin-left: 80px;">
+      </div>
+      <div style="background-color: #f1f1f1;
+        width: 335px;
+        height: 70px;
+        margin-left: 20px;
+        border-radius: 15px; 
+        display: flex; cursor: pointer;
+        margin-top: 10px;">
+        <img src="icons/earphones.svg" style="width: 25px; margin-left: 15px;">
+        <div style="color: rgb(0, 0, 0); margin-top: 14px; margin-left: 15px;">
+          <p style="font-size: 18px; font-weight: 400; width: 155px;">Redmi Buds 2C</p>
+          <p style="color: #4b4b4b; font-size: 14px; font-weight: 300;">Saved</p>
+        </div>
+        <img src="icons/bluetooth-back.svg" style="width: 30px; margin-left: 80px;">
+      </div>
+      <div style="background-color: #f1f1f1;
+        width: 335px;
+        height: 70px;
+        margin-left: 20px;
+        border-radius: 15px; 
+        display: flex; cursor: pointer;
+        margin-top: 10px;">
+        <img src="icons/laptop.svg" style="width: 25px; margin-left: 15px;">
+        <div style="color: rgb(0, 0, 0); margin-top: 14px; margin-left: 15px;">
+          <p style="font-size: 18px; font-weight: 400; width: 155px;">Mi Notebook</p>
+          <p style="color: #4b4b4b; font-size: 14px; font-weight: 300;">Saved</p>
+        </div>
+        <img src="icons/bluetooth-back.svg" style="width: 30px; margin-left: 80px;">
+      </div>
+      <div style="background-color: #f1f1f1;
+        width: 335px;
+        height: 70px;
+        margin-left: 20px;
+        border-radius: 15px; 
+        display: flex; cursor: pointer;
+        margin-top: 10px;">
+        <img src="icons/bluetooth-icon-wo-shell.svg" style="width: 15px; margin-left: 20px; margin-right: 5px;">
+        <div style="color: rgb(0, 0, 0); margin-top: 14px; margin-left: 15px;">
+          <p style="font-size: 18px; font-weight: 400; width: 155px;">Xiaomi X10</p>
+          <p style="color: #4b4b4b; font-size: 14px; font-weight: 300;">Saved</p>
+        </div>
+        <img src="icons/bluetooth-back.svg" style="width: 30px; margin-left: 80px;">
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 80% 20%;">
+        <div style="margin-left: 20px; margin-top: 25px;">AVAILABLE DEVICES</div>
+        <div></div>
+      </div>
+      <div style="display: flex; flex-direction: row;">
+        <div>
+          <img src="icons/available-device.svg" 
+          style="width: 30px; display: flex; align-items: center; margin-left: 20px; margin-top: 10px;">
+        </div>
+        <div style="display: flex; flex: 1; margin-top: 15px; margin-left: 20px;">Rarely used devices (14)</div>
+      </div>
+      <div style="width: 325px; height: 1px; background-color: #d2d2d2;
+        margin-top: 20px; margin-left: 25px; border-radius: 10px;">
+      </div>
+      <p style="font-size: 13px; 
+        color: #5d5d5d; 
+        margin-top: 20px; 
+        margin-left: 20px; 
+        margin-bottom: 0; 
+        padding-bottom: 0;">
+        More settings
+      </p>
+      <p class="additional-settings" style="margin-top: 20px; margin-left: 20px; margin-bottom: 10px;
+      cursor: pointer;">Additional settings</p>
+      <div class="storage-bottom-menu">
+        <div class="storage-footer-menu"><img src="icons/menu rectangle.svg"></div>
+        <div class="storage-footer-home"><img src="icons/home ellipse.svg"></div>
+        <a href="index.html">
+          <div class="storage-footer-back">
+            <button class="storage-footer-back-button">
+              <img src="icons/back triangle.svg">
+            </button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const bluetoothToggle = document.getElementById('bluetoothToggle');
+
+    bluetoothToggle.addEventListener('change', function(){
+      if (this.checked) {
+
+        window.location.href = 'bluetooth-2.html';
+      } else {
+
+        window.location.href = 'bluetooth.html';
+      }
+    });
+  </script>
+</body>
+</html>

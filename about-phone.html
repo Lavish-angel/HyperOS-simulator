@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.about-container {
+  background-color: none;
+  width: 375px; height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.about-phone-screen {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.about-header-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: sticky; /* Make it fixed at the top */
+  top: 0px; /* Position it at the top of the viewport */
+  justify-content: center;
+  width: 375px; /* Ensure it spans the full width */
+  background-color: rgb(245, 245, 245); /* Match the background color of the page */
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.about-back-top-button {
+  background-color: rgb(245, 245, 245);
+  height: 50%;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.rename-option-close,
+.rename-option-ok {
+  background-color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.about-back-top-button:hover {
+  background-color: rgb(235, 235, 235)
+}
+
+.about-back-top-button:active {
+  background-color: rgb(225, 225, 225);
+}
+
+.about-header {
+  padding: 20px 0 20px 60px;
+}
+
+.about-header-text {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: rgb(95, 95, 95);
+}
+
+.about-phone-main-font {
+  margin: 0;
+  background-color: rgb(245, 245, 245);
+  font-family: MiSans;
+  font-size: 35px;
+  font-weight: 600;  
+  padding-top: 120px;
+  padding-bottom: 20px;
+  margin-top: 80px;
+}
+
+.os-text {
+  color: rgb(38, 85, 253);
+}
+
+.version-number-container,
+.about-phone-main-font-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.version-number-text {
+  margin: 0;
+  margin-bottom: 150px;
+  width: auto;
+  align-items: center;
+  font-size: 14px;
+  color: rgb(150, 150, 150);
+}
+
+a {
+  text-decoration: none; color: #333;
+}
+
+.floating-block-category,
+.floating-block-sub-category {
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 28px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 0;
+}
+
+.floating-block-category {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.floating-block-sub-category {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.floating-block-category:hover, 
+.floating-block-sub-category:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+.floating-block-category:active, 
+.floating-block-sub-category:active {
+  background-color: rgb(232, 232, 232);
+}
+
+.about-device-name-container,
+.about-storage-heading-container {
+  margin-bottom: 28px;
+  width: 194px;
+}
+
+.about-xiaomi-14-container,
+.about-storage-data-container {
+  text-align: right;
+  flex: fr;
+  font-size: 13px;
+  color: rgb(203, 203, 203);
+  cursor: pointer;
+}
+
+
+.android-info {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 0 20px 0 20px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.android-info-category {
+  font-weight: 500;
+}
+
+.android-info-sub-category p {
+  text-align: right;
+  font-size: 13px;
+  color: rgb(203, 203, 203);
+  line-height: 34px;
+}
+
+.about-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-list span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.about-list li {
+  display: flex;
+  align-items: center;
+  padding: 15px 22px;
+  cursor: pointer;
+}
+
+.about-list li:hover {
+  background-color: #f0f0f0;
+  ;
+}
+
+.about-list li:active {
+  background-color: rgb(234, 234, 234);
+}
+
+.about-list li.about-list-factory {
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 30px;
+}
+
+.about-list li.about-list-certification {
+  margin-bottom: 55px;
+}
+
+.about-bottom-menu {
+  position: sticky;
+  bottom: 0px;
+  width: 375px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 10px 20px;
+  justify-content: space-around;
+  align-items: end;
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin: 0;
+}
+
+.about-footer-back-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+  padding:  5px 15px 0px 30px;
+  border-radius: 10px;
+}
+
+.about-footer-back-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.about-footer-back-button:active {
+  background-color: rgb(235, 235, 235);}
+
+  .about-footer-home {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding:  5px 15px 0px 15px;
+  border-radius: 10px;
+}
+
+.about-footer-menu {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding:  5px 40px 2px 15px;
+  border-radius: 10px;
+}
+
+</style>
+</head>
+<body>
+  <!-- About Phone Page -->
+  <div class="about-container">
+    <div class="about-phone-screen">
+        <div class="about-header-container">
+            <div class="back-arrow-container">
+              <a href="index.html">
+                <button class="about-back-top-button">
+                  <img src="icons/back arrow.svg">
+                </button>
+              </a>
+            </div>
+            <div class="about-header"><p class="about-header-text">About phone</p></div>
+        </div>
+        <div class="hyperos-logo">
+            <div class="about-phone-main-font-container">
+                <p class="about-phone-main-font">
+                    Xiaomi Hyper<span class="os-text">OS</span>
+                </p>
+            </div>
+    
+            <div class="version-number-container">
+                <p class="version-number-text">1.0.4.0.U.NAIXM</p>
+            </div>
+        </div>
+        <div class="floating-block">
+          <a href="rename-device.html">
+            <div class="floating-block-category">
+              <div class="about-device-name-container">Device name</div>
+              <div class="about-xiaomi-14-container">Xiaomi 14 Ultra</div>
+            </div>
+          </a>
+          <a href="storage-space.html">
+            <div class="floating-block-sub-category">
+              <div class="about-storage-heading-container">Storage</div>
+              <div class="about-storage-data-container">61.3 GB / 512 GB</div>
+            </div>
+          </a>
+        </div>
+        <div class="android-info">
+            <div class="android-info-category">
+                <p>OS version</p>
+                <p>Android Version</p>
+                <p>Android security update</p>
+            </div>
+            <div class="android-info-sub-category">
+                <p>1.0.4.0.UNAINXM</p>
+                <p>14 UKQ1.231003.002</p>
+                <p>2024-05-01</p>
+            </div>
+        </div>
+        <div class="about-list-options-container">
+          <ul class="about-list">
+              <a href="detailed-info.html" style="text-decoration: none;"><li class="about-list-detailed"><span>Detailed info and specs</span></li></a>
+              <a href="backup-and-restore.html" style="text-decoration: none;"><li class="about-list-back-up"><span>Back up and restore</span></li></a>
+              <a href="factory-reset.html" style="text-decoration: none;"><li class="about-list-factory"><span class="factory-list-text">Factory reset</span></li></a>
+              <a href="certification.html" style="text-decoration: none;"><li class="about-list-certification"><span class="certification-list-text">Certification</span></li></a>
+          </ul>
+        </div>
+        <div class="about-bottom-menu">
+            <div class="about-footer-menu"><img src="icons/menu rectangle.svg"></div>
+            <div class="about-footer-home"><img src="icons/home ellipse.svg"></div>
+            <div class="about-footer-back">
+              <a href="index.html">
+                <button class="about-footer-back-button"><img src="icons/back triangle.svg"></button></div>
+              </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

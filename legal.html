@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.storage-container {
+  background-color: none;
+  width: 375px; 
+  height: 834px;
+  border: 10px solid #333;
+  border-radius: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*position and overflow not added*/
+}
+
+.storage-screen {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.storage-header-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: sticky; /* Make it fixed at the top */
+  top: 0px; /* Position it at the top of the viewport */
+  justify-content: center;
+  width: 375px; /* Ensure it spans the full width */
+  background-color: rgb(255, 255, 255); /* Match the background color of the page */
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.storage-back-top-button {
+  background-color: rgb(255, 255, 255);
+  height: 50%;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+}
+
+.storage-header {
+  padding: 20px 0 20px 60px;
+}
+.storage-header-text {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.storage-back-top-button:hover {
+  background-color: rgb(245, 245, 245)
+}
+
+.storage-back-top-button:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.storage-space-heading-text {
+  padding: 20px;
+  padding-top: 0;
+  margin: 0;
+  font-family: 'MiSans';
+  font-size: 30px;
+  font-weight: 230;
+}
+
+.button {
+        background-color: #d2d2d2;
+        width: 44px;
+        height: 22px;
+        border-radius: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: 0.2s;
+      }
+
+      .button::before {
+        position: absolute;
+        content: '';
+        background-color: #fff;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        margin: 3px;
+        transition: 0.2s;
+      }
+
+      input:checked + .button {
+        background-color: #3482FE;
+      }
+
+      input:checked + .button::before {
+        transform: translateX(22px);
+      }
+
+      input {
+        display: none;
+      }
+
+      .storage-bottom-menu {
+        position: sticky;
+        bottom: 0px;
+        width: 375px;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0;
+        justify-content: space-around;
+        align-items: end;
+        background-color: rgb(255, 255, 255);
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        margin: 0;
+      }
+
+      .storage-footer-back-button {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        cursor: pointer;
+        padding: 5px 15px;
+        border-radius: 10px;
+      }
+
+      .storage-footer-back-button:hover {
+        background-color: rgb(245, 245, 245)
+      }
+
+      .storage-footer-back-button:active {
+        background-color: rgb(235, 235, 235);
+      }
+</style>
+</head>
+<body>
+  <div class="storage-container">
+    <div class="storage-screen">
+      <div class="storage-header-container">
+        <div class="storage-back-arrow-container">
+          <a href="detailed-info.html"><button class="storage-back-top-button"><img src="icons/back arrow.svg"></button></a></div>
+        <div class="storage-header"><p class="storage-header-text">Storage</p></div>
+      </div>
+      <div class="storage-heading-and-info-container">
+        <div class="storage-space-heading-text" style="margin: 0; margin-bottom: 12px; font-size: 26px;">
+          Legal information
+        </div>
+      </div>
+      <div style="display: grid;
+        grid-template-columns: 325px 10px;
+        margin-left: 20px; margin-right: 20px;
+        row-gap: 30px;">
+        <div>Open source licenses</div>
+        <div>&gt</div>
+        <div>Google legal</div>
+        <div>&gt</div>
+        <div>Google Play system update licences</div>
+        <div>&gt</div>
+        <div>Terms of Service</div>
+        <div>&gt</div>
+        <div>Privacy Policy</div>
+        <div>&gt</div>
+        <div>RF Exposure Information</div>
+        <div>&gt</div>
+        <div>User Experience Programme</div>
+        <div>&gt</div>
+      </div>
+      <div class="storage-bottom-menu"
+        style="margin-top: 325px;">
+        <div class="storage-footer-menu"><img src="icons/menu rectangle.svg"></div>
+        <div class="storage-footer-home"><img src="icons/home ellipse.svg"></div>
+        <div class="storage-footer-back">
+          <a href="detailed-info.html">
+            <button class="storage-footer-back-button">
+              <img src="icons/back triangle.svg">
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

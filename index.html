@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Layout</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f0f0f0;
+  margin-top: 20px;
+  font-family: MiSans;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url(fonts/MiSans_Latin_VF.ttf) format(truetype);
+}
+
+.settings-container { /* Phone frame */
+  width: 375px;
+  height: 833px;
+  border: 10px solid #333; /* Phone border color */
+  border-radius: 36px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  position: relative;
+  background-color: none;  
+  overflow: hidden;
+}
+
+.settings-main-font {
+  font-family: 'MiSans';
+  font-size: 30px;
+  font-weight: 230;
+  text-align: center;
+  padding: 20px 0; /* Replace margin with padding */
+  margin: 0; /* Remove margin */
+  position: sticky; /* Makes the title sticky */
+  top: 0; /* Sticks the title to the top of the container */
+  background-color: #fff; /*screen color*/
+}
+
+.settings-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px; /* Rounded corners for screen */
+  overflow-y: scroll;
+  background-color: #ffffff; /* Black screen */
+  position: relative;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling */
+  scrollbar-width: none;
+}
+
+.settings-container h4 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+}
+
+.search-box-container {
+  display: flex;
+  flex: 1;
+}
+
+.search-box {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  border-radius: 30px;
+  padding-left: 35px;
+  border: none;
+  margin-bottom: 8px;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 40px;
+  background-image: url(icons/search-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 14px;
+  background-size: 14px 14px;
+  font-family: 'miSans';
+  font-size: 15px;
+}
+
+.settings-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.settings-list li {
+  display: flex;
+  align-items: center;
+  padding: 15px 22px;
+  cursor: pointer;
+  border-bottom: none; /* Ensure no border is applied by default */
+}
+
+.settings-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.settings-list img {
+  width: 32px;
+  height: 32px;
+  margin-right: 15px;
+  margin-left: 0;
+}
+
+.settings-list span {
+  font-family: 'MiSans';
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Apply bottom border to only the "Themes" and "Battery" list items */
+.settings-list li.themes,
+.settings-list li.battery,
+.settings-list li.system,
+.settings-list li.more,
+.settings-list li.additional {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+/* Pop-up styling */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 115, 0);
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.popup.fade-out {
+  opacity: 0; /* Fade-out effect */
+}
+</style>
+</head>
+<body>
+  <div class="settings-container" id="settingsPage">
+    <div class="settings-screen">
+        <p class="settings-main-font">Settings</p>
+        <div class="search-box-container">
+          <input id="search-box" class="search-box" type="text" placeholder="Search settings">
+        </div>
+       <ul class="settings-list">
+          <a href="about-phone.html">
+            <li class="about-phone">
+              <img src="icons/about.svg" alt="About phone"> <span>About phone</span>
+            </li>  
+          </a>
+          <a href="system-apps-updated.html">
+            <li class="system">
+                <img src="icons/system.svg" alt="System apps updater">
+                <span>System apps updater</span>
+            </li>
+          </a>
+          <a href="wi-fi.html">
+            <li>
+                <img src="icons/wifi.svg" alt="WiFi">
+                <span>Wi-Fi</span>
+            </li>
+          </a>
+          <a href="bluetooth.html">
+            <li>
+                <img src="icons/bluetooth.svg" alt="Bluetooth">
+                <span>Bluetooth</span>
+            </li>
+          </a>
+          <a href="mobile-networks.html">
+            <li>
+              <img src="icons/mobile.svg" alt="Mobile networks">
+              <span>Mobile networks</span>
+            </li>
+          </a>
+          <a href="interconnectivity.html">
+            <li>
+              <img src="icons/interconnectivity.svg" alt="Interconnectivity">
+              <span>Interconnectivity</span>
+            </li>
+          </a>
+          <a href="portable-hotspot.html">
+            <li>
+                <img src="icons/portable.svg" alt="Portable hotspot">
+                <span>Portable hotspot</span>
+            </li>
+          </a>
+          <a href="more-connectivity.html">
+            <li class="more">
+                <img src="icons/more.svg" alt="More connectivity options">
+                <span>More connectivity options</span>
+            </li>
+          </a>
+          <a href="lock-screen.html">
+            <li>
+                <img src="icons/lock.svg" alt="Lock screen">
+                <span>Lock screen</span>
+            </li>
+          </a>
+          <a href="notifications.html">
+            <li>
+                <img src="icons/notifications.svg" alt="Notifications">
+                <span>Notifications & status bar</span>
+            </li>
+          </a>
+          <a href="home.html">
+            <li>
+                <img src="icons/home.svg" alt="Home screen">
+                <span>Home screen</span>
+            </li>
+          </a>
+          <a href="display.html">
+            <li>
+                <img src="icons/display.svg" alt="Display & brightness">
+                <span>Display & brightness</span>
+            </li>
+          </a>
+          <a href="sound.html">
+            <li>
+                <img src="icons/sound.svg" alt="Sound & vibration">
+                <span>Sound & vibration</span>
+            </li>
+          </a>
+            <li>
+                <img src="icons/wallpaper.svg" alt="Wallpaper & personalisation">
+                <span>Wallpaper & personalisation</span>
+            </li>
+            <li class="themes" onclick="showPopup()">
+              <img src="icons/themes.svg" alt="Themes">
+              <span>Themes</span>
+            </li>
+          <a href="fingerprints.html">
+            <li>
+                <img src="icons/fingerprint.svg" alt="Fingerprints, face data, and screen lock">
+                <span>Fingerprints, face data, and screen lock</span>
+            </li>
+          </a>
+          <a href="safety.html">
+            <li>
+                <img src="icons/safety.svg" alt="Safety and emergency">
+                <span>Safety and emergency</span>
+            </li>
+          </a>
+          <a href="security.html">
+            <li>
+                <img src="icons/security.svg" alt="Security and privacy">
+                <span>Security and privacy</span>
+            </li>
+          </a>
+          <a href="apps.html">
+            <li>
+                <img src="icons/apps.svg" alt="Apps">
+                <span>Apps</span>
+            </li>
+          </a>
+          <a href="battery.html">
+            <li class="battery">
+              <img src="icons/battery.svg" alt="Battery">
+              <span>Battery</span>
+            </li>
+          </a>
+            <li>
+                <img src="icons/wellbeing.svg" alt="Digital Wellbeing & parental controls">
+                <span>Digital Wellbeing & parental controls</span>
+            </li>
+            <a href="xiaomi-account.html">
+              <li>
+                <img src="icons/xiaomi.svg" alt="Xiaomi Account">
+                <span>Xiaomi Account</span>
+              </li>
+            </a>
+            <li>
+                <img src="icons/google.svg" alt="Google">
+                <span>Google</span>
+            </li>
+            <a href="additional.html">
+              <li class="additional">
+                <img src="icons/additional.svg" alt="Additional settings">
+                <span>Additional settings</span>
+              </li>
+            </a>
+            <a href="location.html">
+              <li>
+                  <img src="icons/location.svg" alt="Location">
+                  <span>Location</span>
+              </li>
+            </a>
+            <li>
+                <img src="icons/feedback.svg" alt="Feedback">
+                <span>Feedback</span>
+            </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Pop-up container -->
+    <div id="popup" class="popup">Opens theme App</div>
+
+    <script> 
+    // Get references to the search box and settings list items
+    const searchBox = document.getElementById('search-box');
+    const settingsListItems = document.querySelectorAll('.settings-list li');
+  
+    // Search box functionality for filtering settings
+    searchBox.addEventListener('input', () => {
+      const query = searchBox.value.toLowerCase(); // Get the search query
+      
+      settingsListItems.forEach(item => {
+        const text = item.textContent.toLowerCase(); // Get the text content of the list item
+        if (text.includes(query)) {
+          item.style.display = 'flex'; // Show the item if it matches the query
+        } else {
+          item.style.display = 'none'; // Hide the item if it doesn't match
+        }
+      });
+    });
+
+      // Pop-up functionality
+      function showPopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'block';
+      popup.classList.remove('fade-out');
+      
+      // Hide the popup after 0.6 seconds
+      setTimeout(() => {
+        popup.classList.add('fade-out'); // Trigger fade-out effect
+        setTimeout(() => {
+          popup.style.display = 'none';
+        }, 500); // Wait for fade-out transition to finish
+      }, 600);
+    }
+  </script>
+</body>
+</html>
